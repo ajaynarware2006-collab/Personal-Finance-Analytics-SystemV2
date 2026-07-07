@@ -3,4 +3,4 @@ __pycache__/
 *.pyc
 *.log
 venv/
-.streamlit/secrets.toml
+**/.streamlit/secrets.toml
