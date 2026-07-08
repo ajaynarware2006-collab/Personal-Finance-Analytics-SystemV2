@@ -1,8 +1,9 @@
-from backend.income import view_income
+from backend.income_operation import view_income
 from backend.analytics import current_month_expense,top_category,highest_expense,lowest_expense,total_savings,budget_remaining,monthly_savings,monthly_expense,yearly_expense,average_daily_expense,category_summary
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+from Frontend.pages.settings import settings
 
 st.set_page_config(
     page_title="dashborad",
@@ -21,11 +22,10 @@ st.markdown("""
 }
 </style>
 """, unsafe_allow_html=True)
-user_id=st.session_state.get["user_id"]
-
+user_id=st.session_state.get("user_id")
+settings()
 st.markdown("<h1 style='background: linear-gradient(to right, #08203E, #557C93); -webkit-background-clip: text; background-clip: text; color: transparent;text-align:center;padding-top:-20px;padding-bottom:40px;'>PERSONAL FINANCE DASHBOARD</h1>",unsafe_allow_html=True)
 
-st.session_state.get["user_id"]
 
 col1,col2,col3,col4=st.columns([1,1,1,1],gap="large")
 
