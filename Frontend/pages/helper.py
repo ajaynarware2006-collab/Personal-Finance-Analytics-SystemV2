@@ -7,7 +7,7 @@ def page_config(page_title,page_icon,layout="wide"):
     layout=layout,
     initial_sidebar_state="collapsed"
     )
-    
+
 def hide_sidebar():
     st.markdown("""
             <style>

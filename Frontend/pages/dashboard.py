@@ -1,36 +1,27 @@
-from backend.income_operation import view_income
+from backend.income_operation import get_income
 from backend.analytics import current_month_expense,top_category,highest_expense,lowest_expense,total_savings,budget_remaining,monthly_savings,monthly_expense,yearly_expense,average_daily_expense,category_summary
 import streamlit as st
 import pandas as pd
 import plotly.express as px
 from Frontend.pages.settings import settings
+from Frontend.pages.helper import page_config,hide_sidebar
 
-st.set_page_config(
-    page_title="dashborad",
-    page_icon="🤖",
-    layout="wide",
-    initial_sidebar_state="collapsed"
-)
-st.markdown("""
-<style>
-[data-testid="stSidebar"] {
-    display: none;
-}
+# ---------------- PAGE CONFIG ---------------- #
+page_config("Dashboard","💰")
 
-[data-testid="stSidebarCollapsedControl"] {
-    display: none;
-}
-</style>
-""", unsafe_allow_html=True)
+hide_sidebar()
+
 user_id=st.session_state.get("user_id")
+
 settings()
+
 st.markdown("<h1 style='background: linear-gradient(to right, #08203E, #557C93); -webkit-background-clip: text; background-clip: text; color: transparent;text-align:center;padding-top:-20px;padding-bottom:40px;'>PERSONAL FINANCE DASHBOARD</h1>",unsafe_allow_html=True)
 
 
 col1,col2,col3,col4=st.columns([1,1,1,1],gap="large")
 
 with col1:
-    st.metric(label="💰 Income",value=f"₹{view_income(user_id)}")
+    st.metric(label="💰 Income",value=f"₹{get_income(user_id)}")
 
 with col2:
 
@@ -43,18 +34,25 @@ with col3:
 with col4:
     st.metric(label="📉 Lowest Expense",value=f"₹{lowest_expense(user_id)}")
 
-
+st.divider()
 st.markdown("<BR><BR><BR><BR><BR>",unsafe_allow_html=True)
 col5,col6=st.columns([1,3])
 
 with col5:
     st.metric("💵TOTAL SAVING YOU HAVE",value=f"₹{total_savings(user_id)}")
     st.markdown("<BR><BR><BR>",unsafe_allow_html=True)
-    st.metric("🎯BUDGET REMAINING",value=f"₹{budget_remaining(user_id)}")
+    budget=budget_remaining(user_id)
+    if budget < 0:
+        error="You run out of budget"
+        st.metric("🎯BUDGET REMAINING",value=f"₹{error}")
+        st.error(f"₹{budget}")
+
+    else:
+        st.metric("🎯BUDGET REMAINING",value=f"₹{budget}")
 
 with col6:
     df=pd.DataFrame(category_summary(user_id))
-    fig=px.pie(df,names=0,values=2)
+    fig=px.pie(df,names=0,values=1)
     st.plotly_chart(fig)
 
 
