@@ -8,7 +8,5 @@ def connecting():
                 user="postgres",
                 password=st.secrets["password"],
                 port=5432)
-    
-    cursor=connection.cursor()
 
-    return connection , cursor
+    return connection
