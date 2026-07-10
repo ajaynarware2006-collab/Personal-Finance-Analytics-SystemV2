@@ -1,7 +1,6 @@
+streamlit
+psycopg
 pandas
 numpy
-matplotlip
+matplotlib
 plotly
-streamlit
-time
-psycopg
