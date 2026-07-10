@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
-from backend.settings import user_view
+from backend.settings import get_user_expenses
+import time
 
 # -------------------- PAGE CONFIG --------------------
 
@@ -36,14 +37,14 @@ div[data-testid="stMetric"]{
 # -------------------- USER --------------------
 
 user_id = st.session_state.get("user_id")
-user_id=2
 if user_id is None:
     st.error("Please Login First")
-    st.stop()
+    time.sleep(2)
+    st.switch_page("app.py")
 
 # -------------------- FETCH DATA --------------------
 
-expenses = user_view(user_id)
+expenses = get_user_expenses(user_id)
 
 expenses = pd.DataFrame(
     expenses,

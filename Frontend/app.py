@@ -1,16 +1,10 @@
 import streamlit as st
+from Frontend.pages.helper import hide_sidebar
+from backend.varification import login
+import time
 
-st.markdown("""
-<style>
-[data-testid="stSidebar"] {
-    display: none;
-}
 
-[data-testid="stSidebarCollapsedControl"] {
-    display: none;
-}
-</style>
-""", unsafe_allow_html=True)
+hide_sidebar()
 
 st.set_page_config(
     page_title="home",
@@ -46,7 +40,15 @@ if submit:
         st.session_state["name"]=name
         st.session_state["password"]=password
 
-        st.switch_page("pages/signup.py")
+        user=login(name=name,password=password)
+
+        if not user:
+            st.switch_page("pages/signup.py")
+
+        else:
+            st.warning("Already have an account")
+            time.sleep(1)
+            st.switch_page("pages/login.py")
     
 col1,col2=st.columns([4,1])
 with col1:

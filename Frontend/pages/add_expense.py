@@ -14,8 +14,12 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
+# -------------------- USER --------------------
 user_id = st.session_state.get("user_id")
-user_id=2
+if user_id is None:
+    st.error("Please Login First")
+    time.sleep(2)
+    st.switch_page("app.py")
 
 # ---------------- CSS ---------------- #
 
