@@ -3,10 +3,11 @@ import streamlit as st
 
 def connecting():
     connection=pg.connect(
-                host="localhost",
-                dbname="Expense_Tracker",
-                user="postgres",
-                password=st.secrets["password"],
-                port=5432)
+                host=st.secrets["DB_HOST"],
+                dbname=st.secrets["DB_NAME"],
+                user=st.secrets["DB_USER"],
+                password=st.secrets["DB_PASSWORD"],
+                port=st.secrets["DB_PORT"],
+                sslmode=st.secrets["DB_SSLMODE"])
 
     return connection

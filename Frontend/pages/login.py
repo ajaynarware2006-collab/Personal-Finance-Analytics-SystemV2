@@ -4,7 +4,7 @@ from Frontend.pages.helper import hide_sidebar,text_gredient
 
 # ---------------- PAGE CONFIG ---------------- #
 st.set_page_config(
-    page_title="home",
+    page_title="login",
     page_icon="🤖",
     layout="centered",
     initial_sidebar_state="collapsed"
