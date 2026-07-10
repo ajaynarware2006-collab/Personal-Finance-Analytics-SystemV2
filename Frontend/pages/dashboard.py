@@ -3,8 +3,8 @@ from backend.analytics import current_month_expense,top_category,highest_expense
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-from Frontend.pages.settings import settings
-from Frontend.pages.helper import page_config,hide_sidebar
+from pages.settings import settings
+from pages.helper import page_config,hide_sidebar
 import time
 
 # ---------------- PAGE CONFIG ---------------- #

@@ -1,6 +1,6 @@
 import streamlit as st
 from backend.varification import signup
-from Frontend.pages.helper import hide_sidebar
+from pages.helper import hide_sidebar
 
 # ---------------- PAGE CONFIG ---------------- #
 st.set_page_config(

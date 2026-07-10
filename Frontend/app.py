@@ -1,5 +1,5 @@
 import streamlit as st
-from Frontend.pages.helper import hide_sidebar
+from pages.helper import hide_sidebar
 from backend.varification import login
 import time
 import sys

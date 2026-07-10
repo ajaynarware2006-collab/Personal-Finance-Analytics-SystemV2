@@ -2,7 +2,7 @@ import streamlit as st
 import time
 from backend.settings import add_expense
 from backend.category_operations import view_categories
-from  Frontend.pages.helper import card_css
+from  pages.helper import card_css
 
 
 # ---------------- PAGE CONFIG ---------------- #

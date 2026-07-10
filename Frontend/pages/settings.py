@@ -1,5 +1,5 @@
 import streamlit as st
-from Frontend.pages.helper import button
+from pages.helper import button
 
 def settings():
     with st.popover("⚙️ Settings"):

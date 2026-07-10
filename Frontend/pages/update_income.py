@@ -1,7 +1,7 @@
 import streamlit as st
 from backend.income_operation import update_income
 import time
-from  pages.helper import card_css
+from pages.helper import card_css
 
 
 # ---------------- PAGE CONFIG ---------------- #
