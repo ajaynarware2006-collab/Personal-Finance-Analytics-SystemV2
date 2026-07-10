@@ -1,0 +1,7 @@
+pandas
+numpy
+matplotlip
+plotly
+streamlit
+time
+psycopg
