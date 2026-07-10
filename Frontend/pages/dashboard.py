@@ -6,6 +6,12 @@ import plotly.express as px
 from pages.settings import settings
 from pages.helper import page_config,hide_sidebar
 import time
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 # ---------------- PAGE CONFIG ---------------- #
 page_config("Dashboard","💰")

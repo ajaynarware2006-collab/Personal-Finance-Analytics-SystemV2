@@ -2,6 +2,12 @@ import streamlit as st
 from backend.income_operation import update_income
 import time
 from pages.helper import card_css
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 
 # ---------------- PAGE CONFIG ---------------- #

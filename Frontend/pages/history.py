@@ -2,6 +2,12 @@ import streamlit as st
 import pandas as pd
 from backend.settings import get_user_expenses
 import time
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 # -------------------- PAGE CONFIG --------------------
 
