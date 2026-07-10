@@ -18,7 +18,7 @@ st.set_page_config(
 user_id = st.session_state.get("user_id")
 if user_id is None:
     st.error("Please Login First")
-    time.sleep(2)
+    time.sleep(1)
     st.switch_page("app.py")
 
 # ---------------- CSS ---------------- #

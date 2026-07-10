@@ -14,7 +14,7 @@ hide_sidebar()
 text_gredient("PERSONAL FINANCE ANALYTICS SYSTEM")
 
 with st.form("login"):
-    text_gredient("WELCOME TO THE APP")
+    st.markdown("<h1 style='background: linear-gradient(to right, #C11E38, #220B34); -webkit-background-clip: text; background-clip: text; color: transparent;text-align:center;'>WELCOME BACK</h1>",unsafe_allow_html=True)
 
     name = st.text_input("Name")
 

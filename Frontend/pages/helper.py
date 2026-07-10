@@ -1,5 +1,17 @@
 import streamlit as st
 
+def button():
+    st.markdown("""
+    <style>
+    div.stButton > button {
+        width: 180px;
+        height: 42px;
+        border-radius: 10px;
+        font-size: 16px;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
 def page_config(page_title,page_icon,layout="wide"):
     st.set_page_config(
     page_title=page_title,

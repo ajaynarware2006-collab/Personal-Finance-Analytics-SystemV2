@@ -39,7 +39,7 @@ div[data-testid="stMetric"]{
 user_id = st.session_state.get("user_id")
 if user_id is None:
     st.error("Please Login First")
-    time.sleep(2)
+    time.sleep(1)
     st.switch_page("app.py")
 
 # -------------------- FETCH DATA --------------------
@@ -63,7 +63,8 @@ expenses["Amount"] = expenses["Amount"].apply(lambda x: f"₹{x:,.0f}")
 expenses["Date"] = pd.to_datetime(expenses["Date"]).dt.strftime("%d %b %Y")
 
 # -------------------- HEADER --------------------
-
+if st.button("Exit"):
+    st.switch_page("pages/dashboard.py")
 st.title("📜 Expense History")
 st.caption("Track every expense you've made.")
 
